@@ -1,0 +1,27 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#markdown-preview, #preview, #editor {
+  margin: 0 auto;
+  text-align: center;
+}
+#editor {
+  display: block;
+}
+#preview {
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 75vw;
+}
+.full-view {
+  height: 90vh;
+  width: 90vw;
+}
+.App-link {
+  color: #61dafb;
+}
