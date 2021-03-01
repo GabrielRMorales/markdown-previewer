@@ -51,7 +51,9 @@ class MarkdownPreviewer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            text: defaultText
+            text: defaultText,
+            editorView: false,
+            previewView: false
         }
         this.handleChange=this.handleChange.bind(this);
     }
@@ -62,16 +64,38 @@ class MarkdownPreviewer extends Component {
         })
     }
 
-
-
     render(){
-        const button="<button>Hi</button>";
+        const editorBtn=<button className='open-close' onClick={(e)=>{
+            this.setState(prevState=>{
+                return {
+                    editorView: !prevState.editorView,
+                    previewView: false
+                }
+            }, window.scrollTo(0,0));
+        }} >{this.state.editorView ? "Shrink" : "Expand"}</button>
+
+
+        const previewBtn=<button className='open-close' onClick={(e)=>{
+            this.setState(prevState=>{
+                return {previewView: !prevState.previewView,
+                        editorView: false}
+            }, window.scrollTo(0,0));
+        }}>{this.state.previewView? "Shrink": "Expand"}</button>;
+
         const markedText = marked(this.state.text);
         return <div id="markdown-preview">
+            <section id="editor-container" className={this.state.editorView ? "full-view" : ""}>
+            {editorBtn}
+            <textarea id="editor"
+            onChange={this.handleChange} value={this.state.text}
+            rows="12" cols="30" />
+            </section>
             
-            <textarea id="editor" onChange={this.handleChange} value={this.state.text}
-            rows="10" cols="40" />
-            <main id="preview" dangerouslySetInnerHTML={{__html: button+markedText}}></main>
+
+            <main className={this.state.previewView ? "full-view" : ""}>
+             {previewBtn}
+            <section id="preview" dangerouslySetInnerHTML={{__html: markedText}}></section>
+            </main>
         </div>
     }
 }

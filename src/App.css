@@ -2,7 +2,6 @@ body {
   padding: 0;
   margin: 0;
   background-color: #004C4C;
-  height: 100vh;
 }
 #markdown-preview {
   display: flex;
@@ -10,22 +9,64 @@ body {
   align-items: center;
   width: 100vw;
 }
-#preview, #editor {
+main, #preview, #editor-container, #editor {
   background-color: teal;
 }
+
+#editor-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  min-width: 300px;
+  padding: 0 5px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
 #editor {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
 }
 #preview {
-  border: 1px solid black;
   padding: 10px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  min-width: 500px;
+  min-height: 300px;
 }
-.full-view {
-  height: 90vh;
+.open-close {
+  align-self: flex-end;
+}
+.full-view {  
   width: 90vw;
+  padding: 0;
+}
+#editor-container.full-view {
+  height: 90vh;
+}
+main.full-view {
+  min-height: 90vh;
+  order: -1;
+}
+#editor-container.full-view {
+  padding: 0; 
+}
+main.full-view .open-close, #editor-container.full-view .open-close {
+  align-self: stretch;
+
 }
 .App-link {
   color: #61dafb;
