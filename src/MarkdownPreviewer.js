@@ -93,7 +93,7 @@ class MarkdownPreviewer extends Component {
             
 
             <main className={this.state.previewView ? "full-view" : ""}>
-             {previewBtn}
+            {previewBtn}
             <section id="preview" dangerouslySetInnerHTML={{__html: markedText}}></section>
             </main>
         </div>

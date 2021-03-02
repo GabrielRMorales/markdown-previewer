@@ -1,0 +1,96 @@
+$border: 10px solid #164A41;
+$el-background: #9DC88D;
+$body-color: #4D774E;
+
+%flex-theme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $body-color;
+}
+
+#markdown-preview {
+    @extend %flex-theme;
+    width: 100vw;
+}
+
+main,
+#preview,
+#editor-container,
+#editor {
+    background-color: $el-background;
+}
+
+#editor-container {
+    @extend %flex-theme;
+    min-height: 200px;
+    min-width: 300px;
+    padding: 0 5px;
+    margin-top: 7px;
+    margin-bottom: 15px;
+    border: $border;
+}
+
+#editor {
+    @extend %flex-theme;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    border: none;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    border: $border;
+}
+
+#preview {
+    padding: 10px;
+    @extend %flex-theme;
+    min-width: 500px;
+    height: 600px;
+    overflow: scroll;
+}
+
+.open-close {
+    align-self: flex-end;
+}
+
+.full-view {
+    width: 90vw;
+    padding: 0;
+}
+
+#editor-container.full-view {
+    height: 90vh;
+    padding: 0;
+
+    .open-close {
+        align-self: stretch;
+    }
+}
+
+main.full-view {
+    min-height: 90vh;
+    order: -1;
+
+    #preview {
+        height: 100%;
+    }
+
+    .open-close {
+        align-self: stretch;
+    }
+}
+
+
+.App-link {
+    color: #61dafb;
+}

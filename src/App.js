@@ -1,5 +1,5 @@
 import MarkdownPreviewer from "./MarkdownPreviewer";
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

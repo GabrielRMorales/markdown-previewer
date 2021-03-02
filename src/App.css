@@ -1,3 +1,5 @@
+
+
 body {
   padding: 0;
   margin: 0;
@@ -20,8 +22,9 @@ main, #preview, #editor-container, #editor {
   min-height: 200px;
   min-width: 300px;
   padding: 0 5px;
-  border: 1px solid black;
-  border-bottom: none;
+  margin-top: 7px;
+  margin-bottom: 15px;
+  border: 10px solid #00ffff;
 }
 
 #editor {
@@ -37,7 +40,7 @@ main, #preview, #editor-container, #editor {
 main {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 10px solid #00ffff;
 }
 #preview {
   padding: 10px;
@@ -45,7 +48,8 @@ main {
   flex-direction: column;
   align-items: center;
   min-width: 500px;
-  min-height: 300px;
+  height: 600px;
+  overflow: scroll;
 }
 .open-close {
   align-self: flex-end;
@@ -60,6 +64,9 @@ main {
 main.full-view {
   min-height: 90vh;
   order: -1;
+}
+main.full-view #preview {
+  height: 100%;
 }
 #editor-container.full-view {
   padding: 0; 
